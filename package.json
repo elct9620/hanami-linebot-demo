@@ -1,0 +1,8 @@
+{
+  "name": "smart_assist",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "hanami-assets": "^2.1.1"
+  }
+}
