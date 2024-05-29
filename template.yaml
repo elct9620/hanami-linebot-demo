@@ -12,6 +12,15 @@ Globals:
     LoggingConfig:
       LogFormat: JSON
 
+Parameters:
+  DomainName:
+    Type: String
+    Default: hanami-line-bot.aotoki.cloud
+    Description: Domain name for the LINE bot
+  CertificateArn:
+    Type: String
+    Description: Certificate ARN for the domain
+
 Resources:
   App:
     Type: AWS::Serverless::Function
@@ -32,6 +41,9 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: prod
+      Domain:
+        DomainName: !Ref DomainName
+        CertificateArn: !Ref CertificateArn
 
 Outputs:
   LineBotApi:
