@@ -16,7 +16,6 @@ gem 'rake'
 
 group :development do
   gem 'guard-puma'
-  gem 'hanami-reloader', '~> 2.1'
   gem 'hanami-webconsole', '~> 2.1'
 
   gem 'ruby-lsp'
@@ -24,7 +23,13 @@ end
 
 group :development, :test do
   gem 'dotenv'
+end
 
+group :cli, :development do
+  gem 'hanami-reloader', '~> 2.1'
+end
+
+group :cli, :development, :test do
   gem 'hanami-cucumber'
   gem 'hanami-rspec', '~> 2.1'
 
