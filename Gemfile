@@ -29,6 +29,7 @@ group :cli, :development do
 end
 
 group :cli, :development, :test do
+  gem 'hanami-cucumber'
   gem 'hanami-rspec', '~> 2.1'
 
   gem 'rubocop'
