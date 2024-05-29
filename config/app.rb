@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "hanami"
+require 'hanami'
 
 module SmartAssist
   class App < Hanami::App
