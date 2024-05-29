@@ -16,6 +16,8 @@ gem 'rake'
 group :development do
   gem 'guard-puma'
   gem 'hanami-webconsole', '~> 2.1'
+
+  gem 'ruby-lsp'
 end
 
 group :development, :test do
