@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  Run LINE bot build with Hanami.rb on AWS Lambda
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 30
+    MemorySize: 512
+
+    LoggingConfig:
+      LogFormat: JSON
+
+Resources:
+  App:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: config/app.Hanami::Lambda.call
+      Runtime: ruby3.2
+      Architectures:
+      - x86_64
+      Events:
+        Webhook:
+          Type: Api
+          Properties:
+            Path: /webhook
+            Method: post
+            RestApiId: !Ref Api
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: prod
+
+Outputs:
+  LineBotApi:
+    Description: API Gateway endpoint URL for Prod stage for App function
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/prod/webhook/"
+  AppFunction:
+    Description: App Lambda Function ARN
+    Value: !GetAtt App.Arn
+  AppFunctionIamRole:
+    Description: Implicit IAM Role created for App function
+    Value: !GetAtt AppRole.Arn
