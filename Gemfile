@@ -23,7 +23,6 @@ end
 
 group :development, :test do
   gem 'dotenv'
-  gem 'webmock'
 end
 
 group :cli, :development do
@@ -40,4 +39,6 @@ end
 group :test do
   gem 'capybara'
   gem 'rack-test'
+  gem 'simplecov', require: false
+  gem 'webmock'
 end

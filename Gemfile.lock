@@ -53,6 +53,7 @@ GEM
     cucumber-tag-expressions (6.1.0)
     debug_inspector (1.2.0)
     diff-lcs (1.5.1)
+    docile (1.4.0)
     dotenv (3.1.2)
     dry-auto_inject (1.0.1)
       dry-core (~> 1.0)
@@ -273,6 +274,12 @@ GEM
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     shellany (0.0.1)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     sorbet-runtime (0.5.11394)
     strscan (3.1.0)
     sys-uname (1.2.3)
@@ -311,6 +318,7 @@ DEPENDENCIES
   rake
   rubocop
   ruby-lsp
+  simplecov
   webmock
 
 BUNDLED WITH
