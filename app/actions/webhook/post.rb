@@ -8,7 +8,14 @@ module SmartAssist
 
         before :verify_signature
 
-        def handle(_req, res)
+        def handle(req, res)
+          body = req.body.read
+          events = line_bot.parse_events_from(body)
+
+          events.each do |event|
+            line_bot.reply_message(event['replyToken'], { type: 'text', text: 'Hello, world!' })
+          end
+
           res.body = 'ok'
         end
 

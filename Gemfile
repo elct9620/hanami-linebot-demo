@@ -23,6 +23,7 @@ end
 
 group :development, :test do
   gem 'dotenv'
+  gem 'webmock'
 end
 
 group :cli, :development do

@@ -13,3 +13,7 @@ end
 Then('the response status code should be {int}') do |expected_code|
   expect(last_response.status).to eq(expected_code)
 end
+
+Then('the reply message should be') do |payload|
+  expect(a_request(:post, line_reply_api).with(body: JSON.parse(payload))).to have_been_made.once
+end
