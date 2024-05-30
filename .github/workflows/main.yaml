@@ -68,7 +68,7 @@ jobs:
       - run: sam build --parallel --use-container --cached
       - run: |
           sam deploy --no-confirm-changeset --no-fail-on-empty-changeset \
-            --parameter-overrides "CertificateArn=${{ secrets.CERTIFICATE_ARN }}" \
-            --parameter-overrides "LINE_CHANNEL_ID=${{ secrets.LINE_CHANNEL_ID }}" \
-            --parameter-overrides "LINE_CHANNEL_TOKEN=${{ secrets.LINE_CHANNEL_TOKEN }}" \
-            --parameter-overrides "LINE_CHANNEL_SECRET=${{ secrets.LINE_CHANNEL_SECRET }}"
+            --parameter-overrides CertificateArn=${{ secrets.CERTIFICATE_ARN }} \
+            --parameter-overrides LineChannelId=${{ secrets.LINE_CHANNEL_ID }} \
+            --parameter-overrides LineChannelToken=${{ secrets.LINE_CHANNEL_TOKEN }} \
+            --parameter-overrides LineChannelSecret=${{ secrets.LINE_CHANNEL_SECRET }}

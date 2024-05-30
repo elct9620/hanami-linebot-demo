@@ -20,13 +20,13 @@ Parameters:
   CertificateArn:
     Type: String
     Description: Certificate ARN for the domain
-  LINE_CHANNEL_ID:
+  LineChannelId:
     Type: String
     Description: LINE Channel ID
-  LINE_CHANNEL_TOKEN:
+  LineChannelToken:
     Type: String
     Description: LINE Channel Token
-  LINE_CHANNEL_SECRET:
+  LineChannelSecret:
     Type: String
     Description: LINE Channel Secret
 
@@ -41,9 +41,9 @@ Resources:
       - x86_64
       Environment:
         Variables:
-          LINE_CHANNEL_ID: !Ref LINE_CHANNEL_ID
-          LINE_CHANNEL_TOKEN: !Ref LINE_CHANNEL_TOKEN
-          LINE_CHANNEL_SECRET: !Ref LINE_CHANNEL_SECRET
+          LINE_CHANNEL_ID: !Ref LineChannelId
+          LINE_CHANNEL_TOKEN: !Ref LineChannelToken
+          LINE_CHANNEL_SECRET: !Ref LineChannelSecret
       Events:
         Webhook:
           Type: Api
