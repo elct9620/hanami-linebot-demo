@@ -14,6 +14,8 @@ gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'puma'
 gem 'rake'
 
+gem 'line-bot-api'
+
 group :development do
   gem 'guard-puma'
   gem 'hanami-webconsole', '~> 2.1'
