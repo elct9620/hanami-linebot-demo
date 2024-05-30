@@ -3,12 +3,10 @@
 source 'https://rubygems.org'
 
 gem 'hanami', '~> 2.1'
-gem 'hanami-assets', '~> 2.1'
 gem 'hanami-controller', '~> 2.1'
 gem 'hanami-lambda'
 gem 'hanami-router', '~> 2.1'
 gem 'hanami-validations', '~> 2.1'
-gem 'hanami-view', '~> 2.1'
 
 gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'puma'
