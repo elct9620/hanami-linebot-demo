@@ -1,5 +1,6 @@
 .aws-sam/
 .env
+env.json
 log/*
 public/
 node_modules/

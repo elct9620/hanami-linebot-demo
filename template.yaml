@@ -20,6 +20,15 @@ Parameters:
   CertificateArn:
     Type: String
     Description: Certificate ARN for the domain
+  LINE_CHANNEL_ID:
+    Type: String
+    Description: LINE Channel ID
+  LINE_CHANNEL_TOKEN:
+    Type: String
+    Description: LINE Channel Token
+  LINE_CHANNEL_SECRET:
+    Type: String
+    Description: LINE Channel Secret
 
 Resources:
   App:
@@ -30,6 +39,11 @@ Resources:
       Runtime: ruby3.2
       Architectures:
       - x86_64
+      Environment:
+        Variables:
+          LINE_CHANNEL_ID: !Ref LINE_CHANNEL_ID
+          LINE_CHANNEL_TOKEN: !Ref LINE_CHANNEL_TOKEN
+          LINE_CHANNEL_SECRET: !Ref LINE_CHANNEL_SECRET
       Events:
         Webhook:
           Type: Api
