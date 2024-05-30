@@ -2,6 +2,6 @@
 
 module SmartAssist
   class Routes < Hanami::Routes
-    post '/webhook', to: ->(_env) { [200, {}, ['ok']] }
+    post '/webhook', to: 'webhook.post'
   end
 end
