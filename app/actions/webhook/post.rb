@@ -4,7 +4,10 @@ module SmartAssist
   module Actions
     module Webhook
       class Post < SmartAssist::Action
-        include Deps[:line_bot]
+        include Deps[
+          :line_bot,
+          'queries.chat.suggest'
+        ]
 
         before :verify_signature
 
@@ -12,11 +15,10 @@ module SmartAssist
           body = req.body.read
           events = line_bot.parse_events_from(body)
 
-          events.each do |event|
-            line_bot.reply_message(event['replyToken'], { type: 'text', text: 'Hello, world!' })
-          end
+          events.each(&method(:resolve_event))
 
-          res.body = 'ok'
+          res.format = :json
+          res.body = { status: 'ok' }.to_json
         end
 
         private
@@ -27,6 +29,17 @@ module SmartAssist
           halt 400, 'Bad Request' unless line_bot.validate_signature(body, signature)
         ensure
           req.body.rewind
+        end
+
+        def resolve_event(event)
+          case event
+          when Line::Bot::Event::Message
+            case event.type
+            when Line::Bot::Event::MessageType::Text
+              text = event.message['text']
+              suggest.call(text, reply_token: event['replyToken'])
+            end
+          end
         end
       end
     end

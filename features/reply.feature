@@ -12,7 +12,7 @@ Feature: Reply Message
           "message": {
             "id": "325708",
             "type": "text",
-            "text": "Hello, world"
+            "text": "Hello, world!"
           }
         }
       ]
