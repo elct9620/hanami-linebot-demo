@@ -26,7 +26,7 @@ Feature: Reply Message
       "messages": [
           {
               "type": "text",
-              "text": "Hello, world!"
+              "text": "Yes, AI answer it!"
           }
       ]
     }
