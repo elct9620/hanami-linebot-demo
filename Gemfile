@@ -12,6 +12,8 @@ gem 'dry-types', '~> 1.0', '>= 1.6.1'
 gem 'puma'
 gem 'rake'
 
+gem 'async-rest'
+
 gem 'line-bot-api'
 
 group :development do
