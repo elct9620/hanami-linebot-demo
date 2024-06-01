@@ -17,3 +17,13 @@ end
 Then('the reply message should be') do |payload|
   expect(a_request(:post, line_reply_api).with(body: JSON.parse(payload))).to have_been_made.once
 end
+
+Given('the AI suggest is') do |text|
+  stub_request(:post, aotoki_suggest_api).to_return do |_request|
+    {
+      body: { success: true, data: { message: text } }.to_json,
+      headers: { 'Content-Type' => 'application/json' },
+      status: 200
+    }
+  end
+end
