@@ -13,6 +13,7 @@ gem 'puma'
 gem 'rake'
 
 gem 'async-rest'
+gem 'redcarpet'
 
 gem 'line-bot-api'
 
