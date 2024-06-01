@@ -37,7 +37,8 @@ module SmartAssist
             case event.type
             when Line::Bot::Event::MessageType::Text
               text = event.message['text']
-              suggest.call(text, reply_token: event['replyToken'])
+              reply = suggest.call(text)
+              line_bot.reply_message(event['replyToken'], reply)
             end
           end
         end

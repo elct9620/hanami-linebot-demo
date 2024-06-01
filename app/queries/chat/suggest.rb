@@ -4,15 +4,12 @@ module SmartAssist
   module Queries
     module Chat
       class Suggest < SmartAssist::Query
-        include Deps[
-          :line_bot,
-          :aotoki_ai
-        ]
+        include Deps[:aotoki_ai]
 
-        def call(text, reply_token:)
+        def call(text)
           suggestion = suggest(text)
 
-          line_bot.reply_message(reply_token, { type: 'text', text: suggestion.message })
+          { type: 'text', text: suggestion.message }
         end
 
         private
