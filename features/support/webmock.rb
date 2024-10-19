@@ -8,7 +8,7 @@ end
 World(StubLineApi)
 
 module StubAotokiAiApi
-  def aotoki_suggest_api = "#{AotokiAi::Client::ENDPOINT.to_url}v1/suggest"
+  def aotoki_suggest_api = "#{AotokiAi::Client::ENDPOINT.to_url}ai/v1/suggest"
 end
 World(StubAotokiAiApi)
 
